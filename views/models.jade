@@ -3,8 +3,16 @@ extends _shared
 block body
 	.models
 		h2 Models we work on
-
+		hr
 		//- Implement sorting here
-
-		for model in models
-			h4= model
+		.form-horizontal
+			.form-group
+				label(for="modelSort").col-sm-2.control-label Sorting
+				.col-sm-10
+					select(data-handler="order").valueSelectors.form-control#modelSort
+						for option, i in ["None", "Asending","Desending"]
+							option(value=i , selected=(i==order)? true:false) #{option}
+		table.table.table-responsive.table-striped.table-hover
+			for model in models
+				tr
+					td= model

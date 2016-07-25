@@ -2,19 +2,30 @@ html
 	head
 		link(rel='stylesheet', href='stylesheets/bootstrap.css')
 		link(rel='stylesheet', href='stylesheets/style.css')
+		script(src="https://code.jquery.com/jquery-2.2.4.min.js", integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=", crossorigin="anonymous")
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js", integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS", crossorigin="anonymous", defer)
 		title Furiosas Auto Shop
 		block head
+
 	body
+		nav.navbar.navbar-default
+			.container
+				.navbar-header
+					button(class=["navbar-toggle", "collapsed"], data-toggle="collapse", aria-expanded="false", data-target="#navigation")
+						span.sr-only Tooglenavigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a.navbar-brand(href="/") Home
+				.collapse.navbar-collapse#navigation
+					ul.nav.navbar-nav
+						li(class={active: path==='/services'})
+							a(href='/services') Services
+						li(class={active: path==='/models'})
+							a(href='/models') Models
+						li(class={active: path==='/reviews'})
+							a(href='/reviews') Reviews
 		.container
-			.nav
-				ul.nav.nav-pills
-					li
-						a(href='/') Home
-					li
-						a(href='/services') Services
-					li
-						a(href='/models') Models
-					li
-						a(href='/reviews') Reviews
-				hr
 			block body
+			script(src="js/app.js")
+				

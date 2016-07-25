@@ -3,11 +3,21 @@ extends _shared
 block body
 	.services
 		h2 Services we provide
+		hr
 
 		//- Implement filtering here
+		.form-horizontal
+			.form-group
+				label(for="serviceType").col-sm-2.control-label Service Type
+				.col-sm-10
+					select(data-handler="type").valueSelectors.form-control#serviceType
+						option(value="") Select type
+						for type, i in ['repair', 'maintenance', 'cosmetic']
+							option(value=type, selected=(type==selectedType)) #{type}
 
 		for service in services
-			h4= service.job
-			p= service.cost
-			p= service.type
+			.service.well.well-small
+				h4= service.job
+				p= service.cost
+				p= service.type
 

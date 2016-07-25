@@ -3,9 +3,15 @@ extends _shared
 block body
 	.reviews
 		h2 Customer reviews
-
+		hr
 		//- Implement search here
-
+		form(action="/reviews").form-horizontal
+			.form-group
+				.col-sm-6
+					input(type="search", placholder="Input your query", name="searchValue", value=searchValue).form-control
+			.form-group
+				.col-sm-6
+					button(type="submit").btn.btn-primary Search
 		for review in reviews
 			blockquote
 				p= review.content
