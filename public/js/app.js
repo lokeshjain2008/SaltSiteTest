@@ -4,5 +4,6 @@
 		$('.valueSelectors').on('change', function() {
 			win.location = win.location.pathname+'?'+ $(this).data('handler')+'='+this.value;
 		});
+
 	});
 })(jQuery, window);
